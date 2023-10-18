@@ -184,7 +184,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.0216962
+  orthographic size: 2.3099363
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -209,7 +209,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0.65, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -307,8 +307,8 @@ Transform:
   m_GameObject: {fileID: 1338662277}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2083, y: -0.968, z: -0.0909864}
-  m_LocalScale: {x: 2.8767, y: 0.89, z: 1}
+  m_LocalPosition: {x: 1.2083, y: -1.0667, z: -0.0909864}
+  m_LocalScale: {x: 8.456153, y: 1.087402, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1230259039}
@@ -651,7 +651,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -664,7 +664,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &1724796000
 MonoBehaviour:
@@ -678,14 +678,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c107cebcc95ea5240849d8cb48967db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TopSpeed: 2
-  AccelerationTime: 2
-  DecelerationTime: 1
+  TopSpeed: 4
+  AccelerationTime: 3
+  DecelerationTime: 0
   JumpHight: 5
   GroundCheck: {fileID: 553221093}
   Groundlayer:
     serializedVersion: 2
     m_Bits: 64
+  JumpMultiplayer: 0
+  JumpTime: 0.4
+  FallSpeed: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

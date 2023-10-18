@@ -4,34 +4,53 @@ using UnityEngine;
 
 public class Movmen : MonoBehaviour
 {
+
+    //Moving vars
     public float TopSpeed = 1f;
     private float Speed = 0f;
     public float AccelerationTime = 1f;
     public float DecelerationTime = 1f;
     private float Horizontal;
 
-    public float JumpHight = 1f;
+    
 
 
     private Rigidbody2D RB;
 
+
+    //Jumping vars
+    public float JumpHight = 1f;
     public Transform GroundCheck;
     public LayerMask Groundlayer;
     bool OnGround;
 
+    bool IsJumping;
+    float Jumpcounter;
+    Vector2 VecGreavity;
+    public float JumpMultiplayer;
+    public float JumpTime;
+    public float FallSpeed= 1;
 
-    // Start is called before the first frame update
-    void Start()
+	//Cayouty jump var
+	float CayoteJump = 0.2f;
+    float CayoteTime;
+
+
+
+	// Start is called before the first frame update
+	void Start()
     {
         RB = GetComponent<Rigidbody2D>();
         AccelerationTime = AccelerationTime / 10;
         DecelerationTime = DecelerationTime / 10;
+
+        VecGreavity = new Vector2(0, -Physics2D.gravity.y);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Hastighet höger vänster 
+        //---------------Hastighet höger vänster ---------------------------------------
         Horizontal = Input.GetAxisRaw("Horizontal");
 
         //om ingen iput från Horizontal
@@ -43,7 +62,8 @@ public class Movmen : MonoBehaviour
         }
         else
         {
-            // If there is input, accelerate the character
+
+            //ifall man trycker på något accelerera 
             float Acceleration = TopSpeed / AccelerationTime;
             Speed = Mathf.MoveTowards(Speed, Horizontal * TopSpeed, Acceleration * Time.deltaTime);
         }
@@ -53,11 +73,67 @@ public class Movmen : MonoBehaviour
 
         OnGround = Physics2D.OverlapCapsule(GroundCheck.position, new Vector2(0.28f, 0.09f),CapsuleDirection2D.Horizontal,0,Groundlayer);
 
-		if (Input.GetButtonDown("Jump")&& OnGround)
+
+
+
+
+
+		//--------------------------Hopp----------------------------
+
+        //Cayoty
+		if (OnGround)
 		{
-            //RB.AddForce(Vector2.up * JumpHight, ForceMode2D.Impulse);
-            RB.velocity = new Vector2(RB.velocity.x , JumpHight);
+            CayoteTime = CayoteJump;
 		}
+		else
+		{
+            CayoteTime -= Time.deltaTime;
+		}
+
+
+
+        //test
+
+
+        
+        //Själva hopp
+        if (Input.GetButtonDown("Jump") && CayoteTime>0f)
+        {
+            RB.velocity = new Vector2(RB.velocity.x, JumpHight);
+            IsJumping = true;
+            Jumpcounter = 0;
+        }
+		if (Input.GetButtonUp("Jump"))
+		{
+            CayoteTime = 0f;
+		}
+
+        if (IsJumping)
+        {
+            if (Input.GetButtonUp("Jump") && RB.velocity.y > 0)
+            {
+                // Reduce the upward velocity when the jump button is released
+                RB.velocity = new Vector2(RB.velocity.x, RB.velocity.y * 0.5f);
+            }
+
+            Jumpcounter += Time.deltaTime;
+            if (Jumpcounter > JumpTime)
+            {
+                IsJumping = false;
+            }
+            else
+            {
+                RB.velocity += Vector2.up * VecGreavity * JumpMultiplayer * Time.deltaTime;
+            }
+        }
+        
+
+        //Fall speed
+		if (RB.velocity.y < 0) 
+		{
+            RB.velocity -= VecGreavity*FallSpeed* Time.deltaTime;
+		}
+
 
 
 
