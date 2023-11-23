@@ -37,8 +37,9 @@ public class Movmen : MonoBehaviour
 
 
 
-	// Start is called before the first frame update
-	void Start()
+
+    // Start is called before the first frame update
+    void Start()
     {
         RB = GetComponent<Rigidbody2D>();
         AccelerationTime = AccelerationTime / 10;
@@ -138,5 +139,9 @@ public class Movmen : MonoBehaviour
 
 
 
+
+
     }
+
+
 }
