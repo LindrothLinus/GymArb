@@ -35,7 +35,9 @@ public class Movmen : MonoBehaviour
 	float CayoteJump = 0.2f;
     float CayoteTime;
 
-
+    //Animation
+    public Animator animator;
+    private bool isFacingRight = true;
 
 
     // Start is called before the first frame update
@@ -53,6 +55,7 @@ public class Movmen : MonoBehaviour
     {
         //---------------Hastighet höger vänster ---------------------------------------
         Horizontal = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("Speed", Mathf.Abs(Horizontal));
 
         //om ingen iput från Horizontal
         if (Horizontal == 0)
@@ -85,6 +88,7 @@ public class Movmen : MonoBehaviour
 		if (OnGround)
 		{
             CayoteTime = CayoteJump;
+            animator.SetBool("IsJumping", false);
 		}
 		else
 		{
@@ -103,14 +107,18 @@ public class Movmen : MonoBehaviour
             RB.velocity = new Vector2(RB.velocity.x, JumpHight);
             IsJumping = true;
             Jumpcounter = 0;
+            
         }
 		if (Input.GetButtonUp("Jump"))
 		{
             CayoteTime = 0f;
-		}
+            
+
+        }
 
         if (IsJumping)
         {
+            animator.SetBool("IsJumping", true);
             if (Input.GetButtonUp("Jump") && RB.velocity.y > 0)
             {
                 // Reduce the upward velocity when the jump button is released
@@ -138,10 +146,27 @@ public class Movmen : MonoBehaviour
 
 
 
-
+        //Flipa spriten
+        if (Horizontal> 0.1f && !isFacingRight)
+        {
+            Flip();
+        }
+        else if (Horizontal < -0.1f && isFacingRight)
+        {
+            Flip();
+        }
 
 
     }
+
+    void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 newScale = transform.localScale;
+        newScale.x *= -1;
+        transform.localScale = newScale;
+    }
+
 
 
 }
