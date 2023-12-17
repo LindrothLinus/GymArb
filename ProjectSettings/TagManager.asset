@@ -7,6 +7,7 @@ TagManager:
   - Hair
   - Clock
   - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Ground
   - Player
   - Enemy
-  - 
+  - Hair
   - 
   - 
   - 

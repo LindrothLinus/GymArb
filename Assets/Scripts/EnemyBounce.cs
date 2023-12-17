@@ -24,8 +24,8 @@ public class EnemyBounce : MonoBehaviour
 	{
         if (other.CompareTag("Enemy"))
         {
-            if (RB.velocity.y < 0)
-            {
+            //if (RB.velocity.y <= 0)
+            //{
                 Destroy(other.gameObject);
                 if (Input.GetButton("Jump"))
                 {
@@ -35,8 +35,8 @@ public class EnemyBounce : MonoBehaviour
                 {
                     RB.velocity = new Vector2(RB.velocity.x, DefaultBounce);
                 }
-                //
-            }
+                
+            //}
         }
 	}
 }
