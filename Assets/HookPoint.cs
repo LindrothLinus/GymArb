@@ -15,6 +15,7 @@ public class HookPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         Rotaion = Rotaion + RotaionSpeed;
         transform.rotation = Quaternion.Euler(Vector3.forward * Rotaion);
     }

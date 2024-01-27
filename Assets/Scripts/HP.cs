@@ -7,10 +7,11 @@ public class HP : MonoBehaviour
     public int Hp;
     public Rigidbody2D RB;
     public GameOver GO;
+    [SerializeField]LiveManeger LV;
     // Start is called before the first frame update
     void Start()
     {
-
+        LV.LifeCount = Hp;
     }
 
     // Update is called once per frame
@@ -36,6 +37,7 @@ public class HP : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy") && RB.velocity.y>=0)
         {
             Hp--;
+            LV.LifeCount--;
         }
 
 

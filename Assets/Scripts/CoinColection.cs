@@ -25,7 +25,7 @@ public class CoinColection : MonoBehaviour
 		if (other.gameObject.CompareTag("Hair"))
 		{
             cm.CoinCount++;
-            Debug.Log("körs");
+            //Debug.Log("kï¿½rs");
             Destroy(other.gameObject);
             
             

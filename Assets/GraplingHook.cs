@@ -60,7 +60,7 @@ public class GraplingHook : MonoBehaviour
         }
 
 
-        Debug.DrawLine(transform.position + transform.right, transform.position + transform.right * 10f, Color.red, 10f);
+        //Debug.DrawLine(transform.position + transform.right, transform.position + transform.right * 10f, Color.red, 10f);
 
 
 		if (CanGrappling == true)
@@ -115,17 +115,7 @@ public class GraplingHook : MonoBehaviour
                 LineRenderer.SetPosition(1, transform.position);
 			}
 
-			if (Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.Mouse0))
-			{
-                Vector3 Direction = LinePosition.position - transform.position;
 
-                RB.velocity = new Vector2(Direction.x * force, Direction.y * force).normalized * force * Time.deltaTime;
-                DistanceJoint.enabled = false;
-			}
-            if(Input.GetKeyUp(KeyCode.E)&& Input.GetKey(KeyCode.Mouse0))
-			{
-                DistanceJoint.enabled = true;
-			}
 		}
         
     }
