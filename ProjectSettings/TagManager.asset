@@ -8,6 +8,8 @@ TagManager:
   - Clock
   - Enemy
   - Ground
+  - HookPoint
+  - Lava
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - Player
   - Enemy
   - Hair
-  - 
+  - HookPoint
   - 
   - 
   - 

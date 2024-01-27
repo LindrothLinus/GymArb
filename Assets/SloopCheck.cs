@@ -6,6 +6,7 @@ public class SloopCheck : MonoBehaviour
 {
     [SerializeField] Rigidbody2D RB;
     [SerializeField] PhysicsMaterial2D PM;
+    float Horizontal;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,28 +16,37 @@ public class SloopCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Horizontal = Input.GetAxisRaw("Horizontal");
 
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+
+    void OnTriggerStay2D(Collider2D other)
     {
-
-    }
-	private void OnCollisionEnter2D(Collision2D other)
-	{
-        if (other.gameObject.CompareTag("Ground") && 0 != Input.GetAxisRaw("Horizontal"))
+        if (other.CompareTag("Ground"))
         {
-            PM.friction = 10000;
+			if (Horizontal == 0)
+			{
+                RB.velocity = new Vector2(0f,0);
+			}
         }
-        else
-        {
+    }
+
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.gameObject.CompareTag("Ground"))
+		{
+            PM.friction = 0.1f;
+		}
+	}
+
+	private void OnCollisionExit(Collision other)
+	{
+		if (other.gameObject.CompareTag("Ground"))
+		{
             PM.friction = 0;
-        }
+		}
+	}
 
-    }
 
-	private void OnTriggerExit2D(Collider2D collision)
-	{
-        PM.friction = 0;
-    }
 }

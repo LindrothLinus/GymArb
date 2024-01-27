@@ -12,6 +12,7 @@ public class Movmen : MonoBehaviour
     public float DecelerationTime = 1f;
     private float Horizontal;
 
+    public float OriginalSpeed;
     
 
 
@@ -31,23 +32,30 @@ public class Movmen : MonoBehaviour
     public float JumpTime;
     public float FallSpeed= 1;
 
-	//Cayouty jump var
-	float CayoteJump = 0.2f;
+    [SerializeField] PhysicsMaterial2D PM;
+
+    //Cayouty jump var
+    float CayoteJump = 0.2f;
     float CayoteTime;
 
     //Animation
     public Animator animator;
-    private bool isFacingRight = true;
+    [SerializeField] private bool isFacingRight = true;
 
 
-    // Start is called before the first frame update
-    void Start()
+	public bool IsFacingRight { get => isFacingRight; }
+
+
+	// Start is called before the first frame update
+	void Start()
     {
         RB = GetComponent<Rigidbody2D>();
         AccelerationTime = AccelerationTime / 10;
         DecelerationTime = DecelerationTime / 10;
 
         VecGreavity = new Vector2(0, -Physics2D.gravity.y);
+        OriginalSpeed = TopSpeed;
+        
     }
 
     // Update is called once per frame
@@ -68,6 +76,7 @@ public class Movmen : MonoBehaviour
         {
 
             //ifall man trycker på något accelerera 
+
             float Acceleration = TopSpeed / AccelerationTime;
             Speed = Mathf.MoveTowards(Speed, Horizontal * TopSpeed, Acceleration * Time.deltaTime);
         }
@@ -134,7 +143,17 @@ public class Movmen : MonoBehaviour
             {
                 RB.velocity += Vector2.up * VecGreavity * JumpMultiplayer * Time.deltaTime;
             }
+
         }
+
+		if (Input.GetButton("Jump"))
+		{
+            PM.friction = 0f;
+		}
+		else
+		{
+            PM.friction = 0.1f;
+		}
         
 
         //Fall speed
@@ -147,11 +166,11 @@ public class Movmen : MonoBehaviour
 
 
         //Flipa spriten
-        if (Horizontal> 0.1f && !isFacingRight)
+        if (Horizontal> 0.1f && !IsFacingRight)
         {
             Flip();
         }
-        else if (Horizontal < -0.1f && isFacingRight)
+        else if (Horizontal < -0.1f && IsFacingRight)
         {
             Flip();
         }
@@ -161,7 +180,7 @@ public class Movmen : MonoBehaviour
 
     void Flip()
     {
-        isFacingRight = !isFacingRight;
+        isFacingRight = !IsFacingRight;
         Vector3 newScale = transform.localScale;
         newScale.x *= -1;
         transform.localScale = newScale;

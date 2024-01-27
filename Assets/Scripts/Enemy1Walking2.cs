@@ -22,10 +22,10 @@ public class Enemy1Walking2 : MonoBehaviour
     {
         if (IsActive == true)
 		{
-            Vector3 direction = (Player.position - transform.position).normalized;
+            Vector2 direction = (Player.position - transform.position).normalized;
             MoveDirection = direction;
 
-            RB.velocity = new Vector2(MoveDirection.x, RB.velocity.y)*movespeed;
+            RB.velocity = new Vector2(MoveDirection.x * movespeed, RB.velocity.y);
             /*
             transform.LookAt(Player);
 

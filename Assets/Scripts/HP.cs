@@ -37,7 +37,16 @@ public class HP : MonoBehaviour
         {
             Hp--;
         }
+
+
     }
+    private void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.CompareTag("Lava"))
+		{
+            Hp = 0;
+		}
+	}
 
 
 }
