@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 394018083178196769}
   - component: {fileID: 7304925337440598939}
   - component: {fileID: 1370060558466766903}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.006551385, y: 0.0040480644}
+  m_Offset: {x: -0.006551385, y: -0.044107594}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -92,7 +92,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.20888019, y: 0.06290209}
+  m_Size: {x: 0.20888019, y: 0.15921341}
   m_EdgeRadius: 0
 --- !u!114 &1370060558466766903
 MonoBehaviour:
@@ -312,6 +312,7 @@ MonoBehaviour:
   TopSpeed: 4
   AccelerationTime: 3
   DecelerationTime: 0
+  OriginalSpeed: 0
   JumpHight: 8.5
   GroundCheck: {fileID: 8687146132117594594}
   Groundlayer:
@@ -368,6 +369,7 @@ MonoBehaviour:
   Hp: 3
   RB: {fileID: 7871736214918630220}
   GO: {fileID: 0}
+  LV: {fileID: 0}
 --- !u!120 &2413362303579958894
 LineRenderer:
   serializedVersion: 2
@@ -504,20 +506,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7514f53a0d8e64b42ac07affd6039224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCamera: {fileID: 0}
   LineRenderer: {fileID: 2413362303579958894}
   DistanceJoint: {fileID: 2149446386560383142}
   RB: {fileID: 7871736214918630220}
   force: 1000
-  movemen: {fileID: 0}
   LinePosition: {fileID: 0}
   CanGrappling: 0
-  Player: {fileID: 0}
+  Mov: {fileID: 361621527443587291}
+  Walkspeed: 0
   points:
   - {fileID: 0}
   - {fileID: 0}
   maxAngle: 133
-  maxDistance: 333
+  maxDistance: 5
 --- !u!70 &4700124759509289624
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
