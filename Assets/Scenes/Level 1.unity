@@ -1094,7 +1094,7 @@ PrefabInstance:
     - target: {fileID: 9038182377201801380, guid: 28ea168118472f14ba6e3b884e172c0a, type: 3}
       propertyPath: LifeText
       value: 
-      objectReference: {fileID: 965615323}
+      objectReference: {fileID: 2124224232}
     - target: {fileID: 9125464601655226724, guid: 28ea168118472f14ba6e3b884e172c0a, type: 3}
       propertyPath: coinText
       value: 
@@ -1192,17 +1192,6 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0}
   m_ApplyAfter: 1
   m_PreserveComposition: 0
---- !u!114 &965615323 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8166964752475794862, guid: e1959b4aa34e0f6478bcd581f49fc743, type: 3}
-  m_PrefabInstance: {fileID: 8213516571758367197}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1011738801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7553368256485838002, guid: 800ba4bc203d2b74cac2e173bc17fc6b, type: 3}
@@ -5477,6 +5466,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 132277324}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2124224232 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4905075881779935381, guid: e1959b4aa34e0f6478bcd581f49fc743, type: 3}
+  m_PrefabInstance: {fileID: 8213516571758367197}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1512162668512852123
 PrefabInstance:
   m_ObjectHideFlags: 0

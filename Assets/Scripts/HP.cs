@@ -23,6 +23,8 @@ public class HP : MonoBehaviour
         {
             frames++;
         }
+
+
         if (frames > 100)
         {
             tookDamage = false;
