@@ -565,10 +565,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "This is kleggs adventur. the goal of the game is to get to the end of
-    each level where the wig is. Klegg is bald and realy want thath wigg...\n\n\n\nThis
-    game is mad by Linus \nBut thanks to mort mort for the grass texture.(Link in
-    my paper)"
+  m_Text: 'Walk with WASD and jump white space.
+
+    You can also swing with a grapling
+    hook if you are near to a grapling point (Triangel). Just press K.
+
+
+
+
+    made
+    by Linus 21Tek'
 --- !u!222 &1993318640
 CanvasRenderer:
   m_ObjectHideFlags: 0
